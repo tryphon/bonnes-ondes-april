@@ -76,6 +76,11 @@ body {
     background: white url('../images/navbar_item.gif') top repeat-x;
 }
 
+#navbar li.active a {
+    background: #005184 url('../images/navbar_item_selected.gif') top repeat-x;
+    color: white; 
+}
+
 #main {
     clear:both;
 }
@@ -119,6 +124,11 @@ h1 {
 #sidebar div p {
     color: #013A50;
     font-size: 0.8em;
+    margin: 10px 0;
+}
+
+#sidebar div p a, #sidebar div p a:visited {
+    color: #02739F;
 }
 
 #sidebar div.podcast img {
