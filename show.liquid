@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"> 
+  
+  <head> 
+    <title>{{show.name}} | Promouvoir et défendre le logiciel libre</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="alternate" type="application/rss+xml" title="Podcast {{show.name}}" href="{{show.url_for_podcast}}"/>
+    <link rel="shortcut icon" href="{{theme.url_for_assets}}/images/favicon.ico" type="image/x-icon" /> 
+    <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/stylesheets/screen.css" media="all"/>
+  </head>
+
+  <body>
+    <div id="page">
+      <div id="header">
+        <a id="logo" href="/" title="Accueil" rel="home"><img src="{{theme.url_for_assets}}/images/logo.png" alt="Accueil" id="logo-image"></a>
+
+        <ul id="navbar">
+          <li><a href="http:///april.org/association" title="">L'association</a></li>
+          <li><a href="http:///april.org/nos-positions" title="">Nos positions</a></li>
+          <li><a href="http:///april.org/activites" title="">Activités</a></li>
+          <li><a href="http:///april.org/themes" title="">Thèmes</a></li>
+          <li><a href="http://wiki.april.org" title="">Wiki</a></li>
+          <li><a href="http://audio.april.org" title="">Audio</a></li>
+          <li><a href="http:///april.org/nous-aider" title="">Nous aider</a></li>
+        </ul>
+      </div>
+
+      <div id="main">
+        <h1 class="title">{{show.name}} | Promouvoir et défendre le logiciel libre</h1>
+
+        <div id="sidebar">
+          <div class="adherer">
+            <a href="http:///april.org/adherer"><img src="{{theme.url_for_assets}}/images/adherer.png" alt="Adhérez à l'April"/></a>
+          </div>
+
+          <div class="podcast">
+            <a href="{{show.url_for_podcast}}">
+              <img src="{{theme.url_for_assets}}/images/podcast.png"/>
+            </a>
+            <h3>Podcast</h3>
+            <p>
+              Abonnez vous pour ne rien rater
+            </p>
+          </div>
+
+        </div>
+
+        <div id="content">
+          <div class="box">
+            {{ show.description | textilize }}
+          </div>
+
+          {% for post in show.posts limit:1 %}
+          <h2>{{ post.title }}</h2>
+          {{ post.description | textilize }}
+          {% endfor %}
+        </div>
+
+      </div>
+
+      <div id="footer">
+        {{theme.admin_link_tag}}
+      </div>
+
+    </div>
+
+  </body>
+</html>
