@@ -56,10 +56,26 @@
             {{ show.description | textilize }}
           </div>
 
-          {% for post in show.posts limit:1 %}
-          <h2>{{ post.title }}</h2>
-          {{ post.description | textilize }}
-          {% endfor %}
+          <div class="live">
+            <h2>En direct</h2>
+            <p>Suivez l'Assemblée générale de 14h à 18h:</p>
+            <p>
+            <audio controls="controls" preload="none">
+              <source src="http://stream.tryphon.eu/april.ogg" type="audio/ogg"/>
+              <a href="http://stream.tryphon.eu/april.m3u">Écouter</a>
+            </audio>
+            </p>
+            <p class="listen">
+              <a href="http://stream.tryphon.eu/april.m3u">Écouter en Ogg/Vorbis</a>
+            </p>
+          </div>
+
+          <div class="posts">
+            {% for post in show.posts limit:1 %}
+            <h2>{{ post.title }}</h2>
+              {{ post.description | textilize }}
+            {% endfor %}
+          </div>
         </div>
 
       </div>

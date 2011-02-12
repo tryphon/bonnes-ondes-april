@@ -170,6 +170,15 @@ h1 {
     margin: 0.5em 0;
 }
 
+#content .live {
+    float: right;
+    margin-left: 20px;
+}
+
+#content .live .listen {
+    text-align: right;
+}
+
 h2 {
     margin: 0 0 10px 0;
     font-size: 18px;
