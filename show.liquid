@@ -3,71 +3,21 @@
   
   <head> 
     <title>{{show.name}} | Promouvoir et défendre le logiciel libre</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="alternate" type="application/rss+xml" title="Podcast {{show.name}}" href="{{show.url_for_podcast}}"/>
-    <link rel="shortcut icon" href="{{theme.url_for_assets}}/images/favicon.ico" type="image/x-icon" /> 
-    <link rel="stylesheet" type="text/css" href="{{theme.url_for_assets}}/stylesheets/screen.css" media="all"/>
+    {% include 'april/head' %}
   </head>
 
   <body>
     <div id="page">
-      <div id="header">
-        <a id="logo" href="/" title="Accueil" rel="home"><img src="{{theme.url_for_assets}}/images/logo.png" alt="Accueil" id="logo-image"></a>
-
-        <ul id="navbar">
-          <li><a href="http:///april.org/association" title="">L'association</a></li>
-          <li><a href="http:///april.org/nos-positions" title="">Nos positions</a></li>
-          <li><a href="http:///april.org/activites" title="">Activités</a></li>
-          <li><a href="http:///april.org/themes" title="">Thèmes</a></li>
-          <li><a href="http://wiki.april.org" title="">Wiki</a></li>
-          <li class="active"><a href="{{show.url_for}}" title="">Audio</a></li>
-          <li><a href="http:///april.org/nous-aider" title="">Nous aider</a></li>
-        </ul>
-      </div>
+      {% include 'april/header' %}
 
       <div id="main">
         <h1 class="title">{{show.name}} | Promouvoir et défendre le logiciel libre</h1>
 
-        <div id="sidebar">
-          <div class="adherer">
-            <a href="http:///april.org/adherer"><img src="{{theme.url_for_assets}}/images/adherer.png" alt="Adhérez à l'April"/></a>
-          </div>
-
-          <div class="podcast">
-            <a href="{{show.url_for_podcast}}">
-              <img src="{{theme.url_for_assets}}/images/podcast.png"/>
-            </a>
-            <h3>Podcast</h3>
-            <p>
-              Abonnez vous<br/>pour ne rien rater
-            </p>
-            <p>
-              <a href="{{show.url_for_podcast}}" onclick="location.href = '{{show.itpc_url_for_podcast}}'; return false;" title="Copier cette URL pour vous abonner au podcast">{{show.url_for_podcast}}</a>
-            </p>
-            <p>
-              <a href="{{show.url_for_podcast}}" title="Voir le feed RSS">Fil RSS</a> - <a href="http://wiki.tryphon.org/comment_lire_un_podcast" title="Comment lire un podcast ?">Aide</a>
-            </p>
-          </div>
-
-        </div>
+        {% include 'april/sidebar' %}
 
         <div id="content">
           <div class="box">
             {{ show.description | textilize }}
-          </div>
-
-          <div class="live">
-            <h2>En direct</h2>
-            <p>Suivez l'Assemblée générale de 14h à 18h:</p>
-            <p>
-            <audio controls="controls" preload="none">
-              <source src="http://stream.tryphon.eu/april.ogg" type="audio/ogg"/>
-              <a href="http://stream.tryphon.eu/april.m3u">Écouter</a>
-            </audio>
-            </p>
-            <p class="listen">
-              <a href="http://stream.tryphon.eu/april.m3u">Écouter en Ogg/Vorbis</a>
-            </p>
           </div>
 
           <div class="posts">
@@ -76,13 +26,26 @@
               {{ post.description | textilize }}
             {% endfor %}
           </div>
+
+          <div class="episodes">
+            {% for episode in show.episodes %}
+            <h2><a href="{{ episode.url_for }}" title="Ecouter {{ episode.title }}">{{ episode.title }}</a></h2>
+            {{ episode.image.tag_for_thumb }}
+            {{ episode.description|textilize|strip_tags|truncate:500 }}
+            {% if episode.broadcasted_at %}
+            <p class="broadcast_date">{{episode.broadcasted_at | date: 'le %d/%m/%Y'}}</p>
+            {% endif %}
+            <p>
+              <a href="{{ episode.url_for }}" title="Ecouter {{ episode.title }}">Ecouter la suite ...</a>
+            </p>
+            {% endfor %}
+          </div>
+
         </div>
 
       </div>
 
-      <div id="footer">
-        {{theme.admin_link_tag}}
-      </div>
+      {% include 'april/footer' %}
 
     </div>
 

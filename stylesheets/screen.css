@@ -95,6 +95,10 @@ h1 {
     color: white;
 }
 
+h1 a {
+    color: white;
+}
+
 #content {
     width: 750px;
     font-size: 0.875em;
@@ -170,19 +174,50 @@ h1 {
     margin: 0.5em 0;
 }
 
-#content .live {
+#content .episodes img {
+    float: right;
+    margin-left: 10px;
+}
+
+#content .episodes .broadcast_date {
+    float: right;
+}
+
+#content .listen p {
+    margin: 0;
+}
+
+#content .listen {
     float: right;
     margin-left: 20px;
 }
 
-#content .live .listen {
+#content .listen .link {
     text-align: right;
+}
+
+#content .listen .image {
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 15px;
+}
+
+#content .listen audio {
+    margin-top: 5px;
+}
+
+#content .listen .audio {
+    margin: 15px 0;
 }
 
 h2 {
     margin: 0 0 10px 0;
     font-size: 18px;
     font-weight: bold;
+    color: #005184;
+}
+
+#content h2 a, #content h2 a:visited {
     color: #005184;
 }
 

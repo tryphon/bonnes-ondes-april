@@ -1,0 +1,22 @@
+        <div id="sidebar">
+          <div class="adherer">
+            <a href="http:///april.org/adherer"><img src="{{theme.url_for_assets}}/images/adherer.png" alt="Adhérez à l'April"/></a>
+          </div>
+
+          <div class="podcast">
+            <a href="{{show.url_for_podcast}}">
+              <img src="{{theme.url_for_assets}}/images/podcast.png"/>
+            </a>
+            <h3>Podcast</h3>
+            <p>
+              Abonnez vous<br/>pour ne rien rater
+            </p>
+            <p>
+              <a href="{{show.url_for_podcast}}" onclick="location.href = '{{show.itpc_url_for_podcast}}'; return false;" title="Copier cette URL pour vous abonner au podcast">{{show.url_for_podcast}}</a>
+            </p>
+            <p>
+              <a href="{{show.url_for_podcast}}" title="Voir le feed RSS">Fil RSS</a> - <a href="http://wiki.tryphon.org/comment_lire_un_podcast" title="Comment lire un podcast ?">Aide</a>
+            </p>
+          </div>
+
+        </div>

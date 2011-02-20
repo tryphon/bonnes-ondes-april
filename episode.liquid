@@ -1,13 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
-  <head>
-    <title></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link href="{{theme.url_for_assets}}/stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
-    <link rel="alternate" type="application/rss+xml" title="Podcast de {{show.name}}" href="{{show.url_for_podcast}}"/>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"> 
+  
+  <head> 
+    <title>{{episode.title }} {{show.name}} | Promouvoir et défendre le logiciel libre</title> 
+    {% include 'april/head' %}
   </head>
 
-  <body class="show">
-  
+  <body>
+    <div id="page">
+      {% include 'april/header' %}
+
+      <div id="main">
+        <h1 class="title"><a href="{{ show.url_for }}">{{ show.name }}</a> | {{episode.title}}</h1>
+
+        {% include 'april/sidebar' %}
+
+        <div id="content">
+          <div class="listen">
+            <p class="image">
+              {{ episode.image.tag }}
+            </p>
+
+            {% unless episode.principal_contents == empty %}
+     	      {% for content in episode.principal_contents %}
+	          <div class="audio">
+              {{ content.audio_player }}
+              <p class="link">
+                <a href="{{content.url_for_playlist}}">Ecouter</a> 
+                | Télécharger <a href="{{content.url_for_ogg}}">Ogg</a>
+              </p>
+	          </div>
+            {% endfor %}
+            {% endunless %}
+          </div>
+
+          {{ episode.description | textilize }}
+        </div>
+      </div>
+
+      {% include 'april/footer' %}
+    </div>
   </body>
 </html>
