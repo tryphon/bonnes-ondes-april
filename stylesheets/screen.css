@@ -156,7 +156,6 @@ h1 a {
 
 #content a, #content a:visited {
     color: #02739F;
-    /* font-weight: bold; */
 }
 #content a:hover {
     color: #005184;
@@ -231,4 +230,13 @@ h2 {
 
 #footer a, #footer a:visited {
     color: #02739F;
+}
+
+#live audio {
+    width: 100%;
+}
+
+#live a {
+    font-size: 140%;
+    font-weight: bold;
 }
