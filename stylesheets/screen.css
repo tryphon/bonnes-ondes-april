@@ -207,6 +207,17 @@ h1 a {
 
 #content .listen .audio {
     margin: 15px 0;
+    border: #E2E5E9 solid 1px;
+    padding: 0 15px 15px 0;
+}
+
+#content .listen .audio .ui360 {
+    margin-bottom: -5px;
+}
+
+#content .ui360 {
+    width: 300px;
+
 }
 
 h2 {

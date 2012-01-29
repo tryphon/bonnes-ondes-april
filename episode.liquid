@@ -4,6 +4,18 @@
   <head> 
     <title>{{episode.title }} {{show.name}} | Promouvoir et défendre le logiciel libre</title> 
     {% include 'april/head' %}
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/player.css"/>
+    <script src="/javascripts/prototype.js"></script>
+    <script src="/javascripts/player.js"></script>
+
+    <script>
+      soundManager.onready(function() { 
+        $$('.ui360 a').each(function(link) { 
+          link.href = link.href.replace("mp3","ogg");
+        })
+      });
+    </script>
   </head>
 
   <body>
@@ -26,15 +38,15 @@
 	          <div class="audio">
               {{ content.audio_player }}
               <p class="link">
-                <a href="{{content.url_for_playlist}}">Ecouter</a> 
-                | Télécharger <a href="{{content.url_for_ogg}}">Ogg</a>
+                <a href="{{content.url_for_playlist}}" title="Ecouter '{{content.name}}'">Ecouter</a> 
+                | Télécharger en <a href="{{content.url_for_ogg}}">Ogg</a>
               </p>
 	          </div>
             {% endfor %}
             {% endunless %}
           </div>
 
-          {{ episode.description | textilize }}
+          {{ episode.html_description }}
         </div>
       </div>
 
