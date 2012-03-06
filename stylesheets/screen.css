@@ -225,6 +225,11 @@ h1 a {
     padding: 0 15px 15px 0;
 }
 
+#content .listen .audio .duration {
+    font-size: 0.7em;
+    color: black;
+}
+
 #content .listen .audio .ui360 {
     margin-bottom: -5px;
     width: 300px;
