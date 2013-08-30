@@ -3,7 +3,7 @@
   
   <head> 
     <title>{{episode.title }} {{show.name}} | Promouvoir et défendre le logiciel libre</title> 
-    {% include 'april/head' %}
+    {% include 'head' %}
 
     <link rel="stylesheet" type="text/css" href="/stylesheets/player.css"/>
     <script src="/javascripts/prototype.js"></script>
@@ -20,12 +20,12 @@
 
   <body>
     <div id="page">
-      {% include 'april/header' %}
+      {% include 'header' %}
 
       <div id="main">
         <h1 class="title"><a href="{{ show.url_for }}">{{ show.name }}</a> | {{episode.title}}</h1>
 
-        {% include 'april/sidebar' %}
+        {% include 'sidebar' %}
 
         <div id="content">
           <div class="listen">
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      {% include 'april/footer' %}
+      {% include 'footer' %}
     </div>
   </body>
 </html>
