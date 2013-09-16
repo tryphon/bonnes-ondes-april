@@ -7,7 +7,8 @@
 
     <link rel="stylesheet" type="text/css" href="/stylesheets/player.css"/>
     <script src="/javascripts/prototype.js"></script>
-    <script src="/javascripts/player.js"></script>
+    
+    <script src="http://player.tryphon.eu/player.js"></script>
 
     <script>
       soundManager.onready(function() { 
@@ -34,19 +35,21 @@
             </p>
 
             {% unless episode.principal_contents == empty %}
-     	      {% for content in episode.principal_contents %}
-	          <div class="audio">
-              {{ content.audio_player }}
-              <p class="link">
-                <a href="{{content.url_for_playlist}}" title="Ecouter '{{content.name}}'">Ecouter</a> 
-                | Télécharger en <a href="{{content.url_for_ogg}}">Ogg</a>
-              </p>
-	          </div>
-            {% endfor %}
+       	      {% for content in episode.principal_contents %}
+  	          <div class="audio main_content">
+                {{ content | audio_player:'small' }}
+                <p class="link">
+                  <a href="{{content.url_for_playlist}}" title="Ecouter '{{content.name}}'">Ecouter</a> 
+                  | Télécharger en <a href="{{content.url_for_ogg}}">Ogg</a>
+                </p>
+  	          </div>
+              {% endfor %}
             {% endunless %}
           </div>
 
-          {{ episode.html_description }}
+          <div class="description">
+            {{ episode.html_description }}
+          </div>
         </div>
       </div>
 

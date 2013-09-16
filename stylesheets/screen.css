@@ -19,6 +19,7 @@ a { text-decoration: none }
 body {
     font-family: Verdana,sans-serif;
     background: #e2e5e9 url('../images/background.gif') top repeat-x;
+    height: 100%;
 }
 
 #page {
@@ -215,30 +216,41 @@ h1 a {
     margin-bottom: 15px;
 }
 
-#content .listen audio {
-    margin-top: 5px;
-}
-
 #content .listen .audio {
     margin: 15px 0;
     border: #E2E5E9 solid 1px;
-    padding: 0 15px 15px 0;
+    padding: 15px;
 }
 
-#content .listen .audio .duration {
-    font-size: 0.7em;
-    color: black;
+#content .listen .player {
+    margin-bottom: 15px;
 }
 
-#content .listen .audio .ui360 {
-    margin-bottom: -5px;
-    width: 300px;
+#content .listen .player a {
+    font-size: 1.2em;
+    margin-top: -13px;
 }
 
-#content .ui360 {
-    /*width: 500px;*/
-
+#content .player .duration {
+    color: #005184;
 }
+#content .listen .player .name {
+    display: block;
+}
+#content .listen .player .duration {
+    font-size: 0.8em;
+}
+
+#content .description .player .duration {
+    margin-left: 10px;
+}
+#content .description .player .duration:before {
+    content: "(";
+}
+#content .description .player .duration:after {
+    content: ")";
+}
+
 
 h2 {
     margin: 0 0 10px 0;
